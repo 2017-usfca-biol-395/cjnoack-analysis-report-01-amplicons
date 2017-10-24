@@ -1,7 +1,7 @@
 ---
 title: "Analysis Report 1: Your Title Here"
-author: "Don Francisco"
-date: "October 20, 2017"
+author: "Chelsea Noack"
+date: "October 24, 2017"
 output: github_document
 bibliography: references.bib
 csl: bioinformatics.csl
@@ -9,7 +9,9 @@ csl: bioinformatics.csl
 
 # Introduction
 
-Add about 1.5-2 pages here. Must cite at least 5 peer reviewed articles.
+Microbial communities within the enviornment span from sizes of large to small and are often predicted by "pairwise interactions" between the different species within the community. As bacterial species interact with one another, they in turn affect the health of their host. In that same vein, forensic studies can be helped by further understanding bacterial-host interactions. Skin-associated bacterial communities are highly diverse, yet personalized, which indicates a possibility for their use in forensic studies. 
++
++In a study done by Fierer et al., skin-associated bacterial communities were gathered from single computer keys and computer mice and hypothesized to determine who owns the objects based on the genetic structures of the bacteria and the individual. By using a high-throughput pyrosequencing technique, Fierer et al. argue that one can confidently compare bacterial communities found on an individual's skin to the objects they use (computer keys and computer mice). My analysis asks specifically how do men and women's skin-associated bacterial communities from this study differ? How are they similar? I hypothesize they will differ most in which bacterial communities they have and how long the sequence lengths will be. 
 
 # Methods
 
