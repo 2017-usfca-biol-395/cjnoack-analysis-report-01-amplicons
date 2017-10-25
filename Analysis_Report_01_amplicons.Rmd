@@ -27,7 +27,7 @@ First, Fierer et al. obtained the sequences from the NCBI database which is open
 
 Next, from the raw data, we used DADA2 DADA2 [@callahan2016] and phyloseq [@mcmurdie2013].
 
-** EDIT HERE **
+** EDIT HERE, Quality Check and Trim with DADA2 **
 
 # Results
 
@@ -43,6 +43,7 @@ library("dplyr")
 library("tidyr")
 library("knitr")
 library("ggplot2")
+library("rcolorbrewer")
 
 # this package allows for the easy inclusion of literature citations in our Rmd
 # more info here: https://github.com/crsh/citr
@@ -279,12 +280,27 @@ phyloseq_obj <- phyloseq(otu_table(sequence_table_nochim,
                          sample_data(metadata_in), # metadata for each sample
                          tax_table(taxa), # taxonomy for each sequence variant
                          phy_tree(tree_in)) # phylogeny from sequence variants
+
+# Compile into a table
+```{r meltedtable}
+melted_obj <- psmelt(phyloseq_obj)
 ```
+
+
+
+
+** Plots I choose to make**
+
+```{r my-plot-1}
+plot_bar(phyloseq_obj,
+         "taxa", fill = "Class", facet_grid=~SampleType)
+```
+
 
 ```{r example-phyloseq-plot-1}
 # alpha diversity metrics
 plot_richness(phyloseq_obj,
-              x = "env_material_s",
+              x = "taxa",
               measures = c("Shannon", "Simpson"),
               color = "sex_s") +
   xlab("Sample origin") +
