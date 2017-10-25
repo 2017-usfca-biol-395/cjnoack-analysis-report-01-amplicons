@@ -11,13 +11,13 @@ csl: bioinformatics.csl
 
 Microbial communities within the enviornment span from sizes of large to small and are often predicted by "pairwise interactions" between the different species within the community. As bacterial species interact with one another, they in turn affect the health of their host. In that same vein, forensic studies can be helped by further understanding bacterial-host interactions. Skin-associated bacterial communities are highly diverse, yet personalized, which indicates a possibility for their use in forensic studies. 
 +
-+In a study done by Fierer et al., skin-associated bacterial communities were gathered from single computer keys and computer mice and hypothesized to determine who owns the objects based on the genetic structures of the bacteria and the individual. By using a high-throughput pyrosequencing technique, Fierer et al. argue that one can confidently compare bacterial communities found on an individual's skin to the objects they use (computer keys and computer mice). My analysis asks specifically how does the data shown here most accurately represent the differences between female and male palm swabs? If we are to carry out tests such as these into the forensic field, is there a bias concering the difference in gender or sex?
++In a study done by Fierer et al., skin-associated bacterial communities were gathered from single computer keys and computer mice and hypothesized to determine who owns the objects based on the genetic structures of the bacteria and the individual. By using a high-throughput pyrosequencing technique, Fierer et al. argue that one can confidently compare bacterial communities found on an individual's skin to the objects they use (computer keys and computer mice). In this analysis, I ask specifically if certain classes of bacteria are more prone on females than on males by looking at the individuals from the study and their bacterial taxa from both the palm and computer  samples. I hypothesize there will be distinct classes of bacteria on females from the males. 
 
 # Methods
 
 ## Sample origin and sequencing
 
-TO ADD: How DNA was extracted, sequenced, and amplified
+** TO ADD: How DNA was extracted, sequenced, and amplified **
 
 Nine women and men of equivalent age and health (four women, five men) were used for the computer mouse study, all of whom worked in the same building at the University of Colorado. The computer mouse belonging to the individual and the palm of the individual's dominant hand were swabbed. Each computer mouse had been touched by the individual in the last 12 hours. Before sampling, all individuals practiced their regular hygeine routines. They compared the swabs from the nine individuals to swabs from 270 other hands from healthy individuals ranging from 18-40 years old. In each sample, the 16S rRNA genes were amplified then carried out via PCR. If sequences were less than 200 or more than 300 base pairs in length, they were excluded from the study. 
 
@@ -65,6 +65,12 @@ library("mctoolsr")
 # And this to visualize our results
 # it also needs to be installed from bioconductor
 library("phyloseq")
+
+# install.packages("devtools")
+devtools::install_github("ropenscilabs/gramr")
+
+#install word count add in
+devtools::install_github("benmarwick/wordcountaddin", type = "source", dependencies = TRUE)
 ```
 
 ```{r extract-sample-and-file-names}
