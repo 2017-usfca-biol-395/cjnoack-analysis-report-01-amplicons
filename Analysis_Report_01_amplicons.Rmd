@@ -293,37 +293,36 @@ plot_tree(phyloseq_obj,
 library("ggplot2")
 p = plot_bar(phyloseq_obj,
              "sex_s", 
-             fill="Phylum",
-             facet_grid=~Sample)
-p + geom_point(aes(x=sex_s, y=Abundance), 
-               color="black", 
-               position="jitter", 
-               size=1)
+             fill = "Phylum",
+             facet_grid = ~Sample)
+p + geom_point(aes(x = sex_s, y = Abundance), 
+               color = "black", 
+               position = "jitter", 
+               size = 1)
 ```
-
 
 ```{r barplot-by-classsexabundance}
 #CLASS PLOT
 plot_bar(phyloseq_obj, 
-         x="Class", fill="sex_s")
+         x = "Class", fill = "sex_s")
 ```
 
 ```{r barplot-by-ordersexabundance}
 # ORDER PLOT
 plot_bar(phyloseq_obj, 
-         x="Order", fill="sex_s")
+         x = "Order", fill = "sex_s")
 ```
 
 ```{r barplot-by-familysexabundance}
 # ORDER PLOT
 plot_bar(phyloseq_obj, 
-         x="Family", fill="sex_s")
+         x = "Family", fill = "sex_s")
 ```
 
 ```{r barplot-by-genussexabundance}
 # ORDER PLOT
 plot_bar(phyloseq_obj, 
-         x="Genus", fill="sex_s")
+         x = "Genus", fill = "sex_s")
 ```
 
 
