@@ -288,26 +288,49 @@ melted_obj <- psmelt(phyloseq_obj)
 
 **Figure 1**: Inferred phylogeny of classes, with points on tips representing the different classes which occurred. Tree represents maximum likelihood phylogeny inferred using RAxML.
 
-```{r example-phyloseq-plot-2}
+```{r phyloseq-plot-1}
 # phylogeny, yay!
 plot_tree(phyloseq_obj,
           color = "Class",
           ladderize = TRUE) # this arranges the tree branches from short to long
 ```
 
-**Figure 2**: 
-```{r example-meltedobj-plot-1}
-# alpha diversity metrics
-plot_richness(phyloseq_obj,
-              x = "Phylum",
-              measures = c("Shannon", "Simpson"),
-              color = "sex_s") +
-  xlab("Sample") +
-  geom_jitter(width = 0.2) +
-  theme_bw()
+**Figure 2**: Barplot indicating the abundance of certain phylums against the different sexes sampled. 
+
+```{r anothertestplot}
+library("ggplot2")
+p = plot_bar(phyloseq_obj,
+             "sex_s", 
+             fill="Phylum",
+             facet_grid=~Sample)
+p + geom_point(aes(x=sex_s, y=Abundance), 
+               color="black", 
+               position="jitter", 
+               size=1)
 ```
 
-**Figure 2**: Inferred phylogeny of sequences, with points on tips representing samples within which each particular taxa occurred. Tree represents maximum likelihood phylogeny inferred using RAxML.
+
+
+
+
+```{r figure 2 working}
+
+# TREE SHOWING ABUNDANCE IN FEMALES AND MALES, OVERALL KIND OF UNHELPFUL
+plot_tree(phyloseq_obj, 
+          size="Abundance", 
+          color="sex_s",
+          base.spacing=0.08)
+```
+
+```{r another-test-tree}
+(plot_heatmap(phyloseq_obj,
+                   "NMDS", 
+                   "bray", 
+                   "sex_s", 
+                   "Phylum"))
+```
+
+
 
 # Discussion
 
