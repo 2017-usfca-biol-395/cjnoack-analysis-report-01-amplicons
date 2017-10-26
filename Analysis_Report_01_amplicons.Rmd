@@ -23,9 +23,12 @@ They compared the swabs from the nine individuals to swabs from 270 other hands 
 
 ## Computational
 
-First, Fierer et al. obtained the sequences from the NCBI database which is open for the public. The files were downloaded to a raw data directory. Next, a QC (quality check) report was run on each individual file. The QC reports are helpful to see how viable each sequence is for analysis; if the majority of the sequence is above a 30 score, then we consider it to be sequenced well. Typically, the 3' end will deteriorate, which is normal. Once the files were checked for quality, they were trimmed using Trimmomatic, which discards any sequence less than 150 base pairs or a base score below 25, which is similar to the experiment's desire to exlude any lengths less than 200 base pairs. Once trimmed, the files were converted to fasta files (from fastq) because BLAST will only work on fasta files. Lastly, the fasta files were put through a BLAST analysis. 
+First, Fierer et al. obtained the sequences from the NCBI database which is open for the public. The files were downloaded to a raw data directory. Once the raw data was downloaded in, the package DADA2 [@callahan2016] needed to be installed from bioconductor which serves as the primary package to clean up and analyze our data. In addition, we downloaded phyloseq [@]  Using DADA2, we extracted sample names from their original .fastq names and ensured our samples were in order. Now, once all files were downloaded and organized, we did a QC (quality check) report on each individual file.QC reports are helpful to see how viable each sequence is for analysis; if the majority of the sequence is above a 30 score, then we consider it to be sequenced well. Typically, the 3' end will deteriorate, which is normal. 
 
-Next, from the raw data, we used DADA2 DADA2 [@callahan2016] and phyloseq [@mcmurdie2013].
+
+Once the files were checked for quality, they were trimmed using Trimmomatic, which discards any sequence less than 150 base pairs or a base score below 25, which is similar to the experiment's desire to exlude any lengths less than 200 base pairs. Once trimmed, the files were converted to fasta files (from fastq) because BLAST will only work on fasta files. Lastly, the fasta files were put through a BLAST analysis. 
+
+Next, from the raw data, we used DADA2  and phyloseq [@mcmurdie2013].
 
 ** EDIT HERE, Quality Check and Trim with DADA2 **
 
@@ -43,7 +46,6 @@ library("dplyr")
 library("tidyr")
 library("knitr")
 library("ggplot2")
-library("rcolorbrewer")
 
 # this package allows for the easy inclusion of literature citations in our Rmd
 # more info here: https://github.com/crsh/citr
@@ -280,24 +282,25 @@ phyloseq_obj <- phyloseq(otu_table(sequence_table_nochim,
                          sample_data(metadata_in), # metadata for each sample
                          tax_table(taxa), # taxonomy for each sequence variant
                          phy_tree(tree_in)) # phylogeny from sequence variants
+```
 
+```{r meltedtable}
 # Compile into a table
-{r meltedtable}
 melted_obj <- psmelt(phyloseq_obj)
 ```
 
 **Figure 1**: Inferred phylogeny of classes, with points on tips representing the different classes which occurred. Tree represents maximum likelihood phylogeny inferred using RAxML.
 
-```{r phyloseq-plot-1}
+```{r phylogeny-by-phylum}
 # phylogeny, yay!
 plot_tree(phyloseq_obj,
-          color = "Class",
+          color = "Phylum",
           ladderize = TRUE) # this arranges the tree branches from short to long
 ```
 
 **Figure 2**: Barplot indicating the abundance of certain phylums against the different sexes sampled. 
 
-```{r anothertestplot}
+```{r barplot-by-phylumsexsampleabundance}
 library("ggplot2")
 p = plot_bar(phyloseq_obj,
              "sex_s", 
@@ -310,25 +313,25 @@ p + geom_point(aes(x=sex_s, y=Abundance),
 ```
 
 
-```{r testplot}
+```{r barplot-by-classsexabundance}
 #CLASS PLOT
 plot_bar(phyloseq_obj, 
          x="Class", fill="sex_s")
 ```
 
-```{r testplot}
+```{r barplot-by-ordersexabundance}
 # ORDER PLOT
 plot_bar(phyloseq_obj, 
          x="Order", fill="sex_s")
 ```
 
-```{r testplot}
+```{r barplot-by-familysexabundance}
 # ORDER PLOT
 plot_bar(phyloseq_obj, 
          x="Family", fill="sex_s")
 ```
 
-```{r testplot}
+```{r barplot-by-genussexabundance}
 # ORDER PLOT
 plot_bar(phyloseq_obj, 
          x="Genus", fill="sex_s")
