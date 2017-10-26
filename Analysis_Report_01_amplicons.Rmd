@@ -1,7 +1,7 @@
 ---
-title: "Analysis Report 1: Your Title Here"
+title: "Analysis Report 1: Diversity of Microbial Communities Among Females and Males"
 author: "Chelsea Noack"
-date: "October 24, 2017"
+date: "October 26, 2017"
 output: github_document
 bibliography: references.bib
 csl: bioinformatics.csl
@@ -335,23 +335,39 @@ plot_bar(phyloseq_obj,
 ```
 
 
-
-
-
-```{r figure 2 working}
-
-# TREE SHOWING ABUNDANCE IN FEMALES AND MALES, OVERALL KIND OF UNHELPFUL
-plot_tree(phyloseq_obj, 
-          size="Abundance", 
-          color="sex_s",
-          base.spacing=0.08)
-```
-
-
-
 # Discussion
 
-Add around 2-3 pages interpreting your results and considering future directions one might take in analyzing these data.
+**Methods**
+Quality check (lines 96-99)
+We can see from the quality profiles that most reads tend to get pretty bad in quality after around 200 bases. Therefore, we decided to set a maximum acceptable sequence length of 225 bases. For the most part, QC was good. A common, albeit unsurprising, pattern was a degradation as the sequences got closer to the 3' end. However, the degree in which the sequences degraded varied. For example: In sequence ERR1942280, we see that the mean quality of scores for the bases were approximately 36, which is a well-above average score. In other scores such as ERR1942282, the average was 35. While this indicates that both sequences achieved a great sequence score, when looking at the data distribution visually, they look quite different. In reality, most of the sequences provided by Fierer et al. are above 30 and thus very good.
+
+Trimming (lines 126-132)
+When the sequences were run through DADA2’s Trim, we found most of the sequences needed to be trimmed. Specifically, 81, 82, 85, 93, and 99 were significantly cut down. While this is important to make note of, I am not as concerned with how these results affect my analysis’ question as to how females and males differ in microbial communities. 
+
+Error models (line 134-138) Visualized (line 140-145)
+Not all sequences were the same length, which I expected. Every sample had plenty of errors per sequence for both females and males. They are visualized in the errors with plots. Generally, you want the black line to follow the black points and, as expected, they generally decrease to the left. In terms of errors, outliers were rare, again indicating the sequencing was well done.  
+
+**Visuals**
+Histogram of sequence lengths: 
+After trimming in DADA2 and denoising, the histogram shows a strong skew to the right with most sequences were around 220-225 bp. The lower range of sequences were below 220 bp. 
+
+Sequence table with no chimeras: 
+Using this table because we want to do variant analysis methods because DADA2 does not cluster things. The alternative, OTU, is more error-prone. The table will show all unique sequences in a sample while avoiding clustering. We see 176 sequences in each column with 20 samples in the rows. Only one sequence was shared by 5 samples: 84, 86, 93, 95, 99. Much of this is due to the experimenters parameters and thus while I find that this particular sequence might be significant, I will not focus heavily on its implications to my original question. When looking at the taxa, we see that sequence is match to an unnamed Proteobacteria, which makes sense to be shared by both men and women. When scanning through the rest of the 176 entries, the majority of shared sequences was within the sample. 
+
+**Figure 1**
+
+**Figure 2**
+
+**Figure 3**
+
+**Figure 4**
+
+**Figure 5**
+
+**Figure 6**
+
+# Conclusion
+
 
 # Sources Cited
 
