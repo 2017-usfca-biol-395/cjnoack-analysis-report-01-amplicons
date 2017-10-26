@@ -310,6 +310,31 @@ p + geom_point(aes(x=sex_s, y=Abundance),
 ```
 
 
+```{r testplot}
+#CLASS PLOT
+plot_bar(phyloseq_obj, 
+         x="Class", fill="sex_s")
+```
+
+```{r testplot}
+# ORDER PLOT
+plot_bar(phyloseq_obj, 
+         x="Order", fill="sex_s")
+```
+
+```{r testplot}
+# ORDER PLOT
+plot_bar(phyloseq_obj, 
+         x="Family", fill="sex_s")
+```
+
+```{r testplot}
+# ORDER PLOT
+plot_bar(phyloseq_obj, 
+         x="Genus", fill="sex_s")
+```
+
+
 
 
 
@@ -320,14 +345,6 @@ plot_tree(phyloseq_obj,
           size="Abundance", 
           color="sex_s",
           base.spacing=0.08)
-```
-
-```{r another-test-tree}
-(plot_heatmap(phyloseq_obj,
-                   "NMDS", 
-                   "bray", 
-                   "sex_s", 
-                   "Phylum"))
 ```
 
 
