@@ -305,14 +305,14 @@ plot_tree(phyloseq_obj,
           ladderize = TRUE) # this arranges the tree branches from short to long
 ```
 
-**Figure 2**: Barplot indicating the abundance of certain phylums against the different sexes sampled. 
+**Figure 2**: Barplot indicating the abundance of certain phylums against the two sexes sampled. 
 
 ```{r barplot-by-phylumsexsampleabundance}
 library("ggplot2")
 p = plot_bar(subsetted_phyloseq_obj,
              "sex_s", 
              fill = "Phylum",
-             facet_grid = ~Sample)
+             facet_grid = ~anonymized_name_s)
 p + geom_point(aes(x = sex_s, y = Abundance), 
                color = "black", 
                position = "jitter", 
@@ -357,16 +357,35 @@ plot_bar(subsetted_phyloseq_obj,
 **ANSWER THE HYPOTHESIS**
 
 **Figure 1**
+The following is a phylogeny of the phylums from the experiment. The rationale behind analyzing it is to get a general picture of the data. We see an over abundance of Firmicutes, Proteobacteria, and Actinobacteria. Thus we can assume prior to any investigation into the difference of the sexes that, most likely, both men and women will have these three phyla. What is in less abundance but still has importance is Cyanobacteria/Chloroplast, Bacteriodetes, and Gemmatimonadetes. 
 
 **Figure 2**
+Using a subset of our data to include only females and males, while there was a category for the "Not applicable". Figure 2 confirms our assumption about the overabundance of particular Phylums in both men and women, especially Proteobacteria. However, in contrast to our previous assumption, the majority of the Actinobacteria was found in a single female sample. Not surprisingly, one male sample held the majority of the Cyanobacteria/Chloroplast, which I previously assumed would linger in one of the sexes given its low abundance. 
 
 **Figure 3**
+My hypothesis was that females and males differ in their microbial communities and that it would most distinctly differ by class of bacteria. What is first glaring in all the following figures, Figure 3 included, in the massive overabundance of N/A (not applicable) bacteria found on male palms. What concerns me is that this might be indicitive of poor sampling for the males rather than some conspicuous bacteria, but I'm weary to make too broad scale of assumptions. Secondly, we see, as from the previous figure, a high abundance of Actinobacteria in females. Third, our assumption previously made is confirmed that Proteobacteria is spread out fairly evenly amongst the females and males (specifically Alphaproteobacteria and Betaproteobacteria). Lastly, we agains see the male samples dominating in Chloroplast. What IS new is that we see a class called Flavobacteria which is found mainly on females (in Phylum Bacteriodetes). While it is new on the plot, we expected to find a Bacteriodete on mainly one of the sexes hands given the lack of abundance out of all the Phylums. 
 
 **Figure 4**
+In Figure 4, we continue to see the glaringly common theme that there is an overabundance of N/A in the male samples. However, we do see Nesseriales in male samples, which comes from class Betaproteobacteria, Proteobacteria. In females, we see Rhizobiales, which comes from class Alphaproteobacteria, Phylyum Proteobacteria. While I have thus far made a distinguishing line between females and males, specifically when it comes to Proteobacteria, Figure 4 also shows us that they share an Order within Betaproteobacteria called Burkholderiales. 
 
 **Figure 5**
 
 **Figure 6**
+
+**Similarities**
+Proteobacteria: Figure 1, 2. Specifically Burkholderiales in Betaproteobacteria. 
+
+**Differences**
+
+Actinobacteria mostly in one female sample, first: Figure 2, Figure 3.
+
+Cyanobacteria/chloroplast mostly in one male sample: Figure 2, Figure 3.
+
+Proteobacteria in both females and males: All figures BUT figure 3 shows women going to alpha and men going to beta. More interestingly, Figure 4 shows men going to Nesseriales specifically, making my hypothesis wrong that the most indicitave order of Bacteria between females and males (from this study) is Order. 
+
+Bacteriodete: Figure 3.
+
+N.A in males: All.
 
 # Conclusion
 
