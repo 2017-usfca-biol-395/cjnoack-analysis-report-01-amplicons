@@ -13,6 +13,8 @@ Microbial communities within the enviornment span from sizes of large to small a
 
 In a study done by Fierer et al., skin-associated bacterial communities were gathered from single computer keys and computer mice and hypothesized to determine who owns the objects based on the genetic structures of the bacteria and the individual. By using a high-throughput pyrosequencing technique, Fierer et al. argue that one can confidently compare bacterial communities found on an individual's skin to the objects they use (computer keys and computer mice). In this analysis, I ask if females and males differ in their microbial communities and further look into *how* they differ (by class, order, family, or genus). I hypothesize that there will be a difference in microbial communities most identifiably by class. 
 
+** ADD MORE **
+
 # Methods
 
 ## Sample origin and sequencing
@@ -278,6 +280,12 @@ phyloseq_obj <- phyloseq(otu_table(sequence_table_nochim,
 melted_obj <- psmelt(phyloseq_obj)
 ```
 
+```{r subset_phyloseq_obj}
+# Make subsetted information without Non-applicable
+subsetted_phyloseq_obj <- subset_samples(phyloseq_obj,
+                                         sex_s != "Not applicable")
+```
+
 **Figure 1**: Inferred phylogeny of classes, with points on tips representing the different classes which occurred. Tree represents maximum likelihood phylogeny inferred using RAxML.
 
 ```{r phylogeny-by-phylum}
@@ -291,7 +299,7 @@ plot_tree(phyloseq_obj,
 
 ```{r barplot-by-phylumsexsampleabundance}
 library("ggplot2")
-p = plot_bar(phyloseq_obj,
+p = plot_bar(subsetted_phyloseq_obj,
              "sex_s", 
              fill = "Phylum",
              facet_grid = ~Sample)
@@ -303,30 +311,32 @@ p + geom_point(aes(x = sex_s, y = Abundance),
 
 ```{r barplot-by-classsexabundance}
 #CLASS PLOT
-plot_bar(phyloseq_obj, 
+plot_bar(subsetted_phyloseq_obj, 
          x = "Class", fill = "sex_s")
 ```
 
 ```{r barplot-by-ordersexabundance}
 # ORDER PLOT
-plot_bar(phyloseq_obj, 
+plot_bar(subsetted_phyloseq_obj, 
          x = "Order", fill = "sex_s")
 ```
 
 ```{r barplot-by-familysexabundance}
-# ORDER PLOT
-plot_bar(phyloseq_obj, 
+# FAMILY PLOT
+plot_bar(subsetted_phyloseq_obj, 
          x = "Family", fill = "sex_s")
 ```
 
 ```{r barplot-by-genussexabundance}
-# ORDER PLOT
-plot_bar(phyloseq_obj, 
+# GENUS PLOT
+plot_bar(subsetted_phyloseq_obj, 
          x = "Genus", fill = "sex_s")
 ```
 
 
 # Discussion
+
+**ANSWER THE HYPOTHESIS**
 
 **Methods**
 Quality check (lines 96-99)
