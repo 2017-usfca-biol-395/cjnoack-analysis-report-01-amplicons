@@ -354,6 +354,12 @@ plot_bar(subsetted_phyloseq_obj,
 
 # Discussion
 
+
+
+
+
+
+
 **ANSWER THE HYPOTHESIS**
 
 **Figure 1**
@@ -400,10 +406,6 @@ More interestingly, Figure 4 shows men going to Nesseriales specifically, making
 Bacteriodete: Figure 3.
 
 N.A in males: All.
-
-# Conclusion
-
-From the data provided, we see females and males showing most difference in microbial communities at the level of Order, not Class. 
 
 # Errors/Bias
 
