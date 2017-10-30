@@ -1,12 +1,16 @@
 Analysis Report 1: Diversity of Microbial Communities Among Females and Males
 ================
 Chelsea Noack
-October 26, 2017
+October 30, 2017
 
 Introduction
 ============
 
-Microbial communities within the enviornment span from sizes of large to small and are often predicted by "pairwise interactions" between the different species within the community. As bacterial species interact with one another, they in turn affect the health of their host. In that same vein, forensic studies can be helped by further understanding bacterial-host interactions. Skin-associated bacterial communities are highly diverse, yet personalized, which indicates a possibility for their use in forensic studies. + +In a study done by Fierer et al., skin-associated bacterial communities were gathered from single computer keys and computer mice and hypothesized to determine who owns the objects based on the genetic structures of the bacteria and the individual. By using a high-throughput pyrosequencing technique, Fierer et al. argue that one can confidently compare bacterial communities found on an individual's skin to the objects they use (computer keys and computer mice). In this analysis, I ask if females and males differ in their microbial communities and further look into *how* they differ (by class, order, family, or genus). I hypothesize that there will be a difference in microbial communities most identifiably by class.
+Microbial communities are groups of microorganisms inhabiting the same place. These communities span from sizes of large to small. Pairwise interactions between different species within the community predict the microbial community. As bacterial species interact with one another, they in turn affect the health of their host. In a human host, microbes can live in various places on the body, from the gut to the palm of a hand. As humans, we can learn a lot from these communities.
+
+Skin-associated microbial communities are diverse and personalized. The diversity is due to, first, the skin being a multi-layered organ. Second, each layer has different structures, ranging from arm hair follicles to glands. The different structures operate as sub-habitats for microbes. Third, the skin has various niches a microbe can inhabit. The niches themselves range from pH to moisture levels. The above all attribute to the diversity of skin-associate microbial communities.
+
+The microbial communities found on human skin are also personalized, which raises a lot of questions. By knowing the makeup of one's microbial community, what can we learn about the individual? Further, what can learn about a community whom all share similar microbial communities? What can we learn about the perceived differences? Specifically, can something such as gender be an indicator for microbial community difference? I hypothesize that females and males have different microbial communities. In my analysis, I will attempt to answer this question using the data from a study done by Fierer et al. (2010). In the study, Fierer et al. took samples from personal computers and the computer owner's palm. By studying the similarities between the samples, Fierer et al. hypothesized that one can identify the computer by its owner using microbial communities (Fierer *et al.*, 2010). Given the data, I will attempt to answer my biological question about the relationship between gender and microbes.
 
 Methods
 =======
@@ -14,25 +18,17 @@ Methods
 Sample origin and sequencing
 ----------------------------
 
-Nine women and men of equivalent age and health (four women, five men) were used for the computer mouse study, all of whom worked in the same building at the University of Colorado. The computer mouse belonging to the individual and the palm of the individual's dominant hand were swabbed. Each computer mouse had been touched by the individual in the last 12 hours. Before sampling, all individuals practiced their regular hygeine routines. Fierer et al. extracted the DNA from the swabs using MO BIO Powersoil isolation kit. Next, they amplified the 16SrRNA genes from every sample using a primer set then running it through PCR. Finally, they sequenced the DNA of each sample by pyrosequencing using a 454 Life Sciences Genome Sequencer FLX Instrument (Roche). If sequences were less than 200 or more than 300 base pairs in length, they were excluded from the study.
-
-They compared the swabs from the nine individuals to swabs from 270 other hands from healthy individuals ranging from 18-40 years old.
+Nine women and men of equivalent age and health (four women, five men) were used for the computer mouse study, all of whom worked in the same building at the University of Colorado. The computer mouse belonging to the individual and the palm of the individual's dominant hand were swabbed. Each computer mouse had been touched by the individual in the last 12 hours. Before sampling, all individuals practiced their regular hygeine routines. Fierer et al. extracted the DNA from the swabs using MO BIO Powersoil isolation kit. Next, they amplified the 16SrRNA genes from every sample using a primer set then running it through PCR. Finally, they sequenced the DNA of each sample by pyrosequencing using a 454 Life Sciences Genome Sequencer FLX Instrument (Roche). If sequences were less than 200 or more than 300 base pairs in length, they were excluded from the study. They compared the swabs from the nine individuals to swabs from 270 other hands from healthy individuals ranging from 18-40 years old.
 
 Computational
 -------------
 
-First, Fierer et al. obtained the sequences from the NCBI database which is open for the public. The files were downloaded to a raw data directory. Once the raw data was downloaded in, the package DADA2 (Callahan *et al.*, 2016) needed to be installed from bioconductor which serves as the primary package to clean up and analyze our data. In addition, we downloaded phyloseq \[@\] Using DADA2, we extracted sample names from their original .fastq names and ensured our samples were in order. Now, once all files were downloaded and organized, we did a QC (quality check) report on each individual file.QC reports are helpful to see how viable each sequence is for analysis; if the majority of the sequence is above a 30 score, then we consider it to be sequenced well. Typically, the 3' end will deteriorate, which is normal.
+First, Fierer et al. obtained the sequences from the RDP database which is open for the public. The files were downloaded to a raw data directory. Once the raw data was downloaded in, the package DADA2 (Callahan *et al.*, 2016) needed to be installed from bioconductor which serves as the primary package to clean up and analyze our data. In addition, we downloaded phyloseq (McMurdie and Holmes, 2013) Using DADA2, we extracted sample names from their original .fastq names and ensured our samples were in order.
 
-Once the files were checked for quality, they were trimmed using Trimmomatic, which discards any sequence less than 150 base pairs or a base score below 25, which is similar to the experiment's desire to exlude any lengths less than 200 base pairs. Once trimmed, the files were converted to fasta files (from fastq) because BLAST will only work on fasta files. Lastly, the fasta files were put through a BLAST analysis.
-
-Next, from the raw data, we used DADA2 and phyloseq (McMurdie and Holmes, 2013).
-
-\*\* EDIT HERE, Quality Check and Trim with DADA2 \*\*
+Once all files were downloaded and organized, we did a QC (quality check) report on each individual file.QC reports are helpful to see how viable each sequence is for analysis; if the majority of the sequence is above a 30 score, then we consider it to be sequenced well. Typically, the 3' end will deteriorate, which is normal. Once the files were checked for quality, they were placed in a file in which filtered files would be placed (no files exceeding 225 because quality of bases deteriorate around approximately 200 bp). Finally, the filtered files were trimmed down based on DADA2's recommended 454 parameters, as Fierer et al. used 454 pyrosequencing (Roche). Once the files were trimmed, they are ready to be analyzed.
 
 Results
 =======
-
-In addition to a minimum of 3-4 figures/tables (and associated captions), you should include sufficient text in this section to describe what your findings were. Remember that in the results section you just describe what you found, but you don't interpret it - that happens in the discussion.
 
 ``` r
 # Be sure to install these packages before running this script
@@ -69,11 +65,12 @@ library("mctoolsr")
 # it also needs to be installed from bioconductor
 library("phyloseq")
 
-# install.packages("devtools")
+# Install devtools package
 devtools::install_github("ropenscilabs/gramr")
 
 #install word count add in
-devtools::install_github("benmarwick/wordcountaddin", type = "source", dependencies = TRUE)
+devtools::install_github("benmarwick/wordcountaddin",
+                         type = "source", dependencies = TRUE)
 ```
 
 ``` r
@@ -101,7 +98,7 @@ plotQualityProfile(filenames_forward_reads[1:20])
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/check-quality-plots-1.png)
 
-We can see from the quality profiles that most reads tend to get pretty bad in quality after around 200 bases. Therefore, we decided to set a maximum acceptable sequence length of 225 bases.
+**Quality check** We can see from the quality profiles that most reads tend to get pretty bad in quality after around 200 bases. Therefore, we decided to set a maximum acceptable sequence length of 225 bases. For the most part, QC was good. A common, albeit unsurprising, pattern was a degradation as the sequences got closer to the 3' end. However, the degree in which the sequences degraded varied. For example: In sequence ERR1942280, we see that the mean quality of scores for the bases were approximately 36, which is a well-above average score. In other scores such as ERR1942282, the average was 35. While this indicates that both sequences achieved a great sequence score, when looking at the data distribution visually, they look quite different. In reality, most of the sequences provided by Fierer et al. are above 30 and thus very good.
 
 ``` r
 # Place filtered files in filtered/ subdirectory
@@ -125,6 +122,8 @@ filtered_output <- filterAndTrim(fwd = filenames_forward_reads,
                                  compress = TRUE,
                                  multithread = FALSE)
 ```
+
+**Trimming** When the sequences were run through DADA2’s Trim, we found most of the sequences needed to be trimmed. Specifically, 81, 82, 85, 93, and 99 were significantly cut down. While this is important to make note of, I am not as concerned with how these results affect my analysis’ question as to how females and males differ in microbial communities.
 
 ``` r
 # produce nicely-formatted markdown table of read counts
@@ -223,6 +222,8 @@ plotErrors(errors_forward_reads,
     ## Warning: Transformation introduced infinite values in continuous y-axis
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/visualize-errors-with-plots-1.png)
+
+**Errors** Not all sequences were the same length, which I expected. Every sample had plenty of errors per sequence for both females and males. They are visualized in the errors with plots. Generally, you want the black line to follow the black points and, as expected, they generally decrease to the left. In terms of errors, outliers were rare, again indicating the sequencing was well done.
 
 ``` r
 # get rid of any duplicated sequences
@@ -498,7 +499,7 @@ sequence_table <- makeSequenceTable(dada_forward_reads)
 
     ## The sequences being tabled vary in length.
 
-The output table has 20 rows (samples) and 178 columns (sequence variants). Notice how we can embed R code directly in our markdown text.
+The output table has 20 rows (samples) and 178 columns (sequence variants). Notice how we can embed R code directly in our markdown text. Histogram of sequence lengths: After trimming in DADA2 and denoising, the histogram shows a strong skew to the right with most sequences were around 220-225 bp. The lower range of sequences were below 220 bp.
 
 ``` r
 # Quick check to look at distribution of trimmed and denoised sequences
@@ -525,7 +526,7 @@ non_chimeric_reads <- round(sum(sequence_table_nochim) / sum(sequence_table),
                             digits = 4) * 100
 ```
 
-After removing chimeras, we were left with 99.65% of our cleaned reads.
+After removing chimeras, we were left with 99.65% of our cleaned reads. Sequence table with no chimeras: Using this table because we want to do variant analysis methods because DADA2 does not cluster things. The alternative, OTU, is more error-prone. The table will show all unique sequences in a sample while avoiding clustering. We see 176 sequences in each column with 20 samples in the rows. Only one sequence was shared by 5 samples: 84, 86, 93, 95, 99. Much of this is due to the experimenters parameters and thus while I find that this particular sequence might be significant, I will not focus heavily on its implications to my original question. When looking at the taxa, we see that sequence is match to an unnamed Proteobacteria, which makes sense to be shared by both men and women. When scanning through the rest of the 176 entries, the majority of shared sequences was within the sample.
 
 ``` r
 # Build a table showing how many sequences remain at each step of the pipeline
@@ -592,7 +593,7 @@ unname(taxa)
     ##   [5,] "Bacteria" "Proteobacteria"            "Betaproteobacteria" 
     ##   [6,] "Bacteria" "Cyanobacteria/Chloroplast" "Chloroplast"        
     ##   [7,] "Bacteria" "Proteobacteria"            "Betaproteobacteria" 
-    ##   [8,] "Bacteria" "Bacteroidetes"             NA                   
+    ##   [8,] "Bacteria" "Bacteroidetes"             "Cytophagia"         
     ##   [9,] "Bacteria" "Proteobacteria"            "Alphaproteobacteria"
     ##  [10,] "Bacteria" "Proteobacteria"            "Betaproteobacteria" 
     ##  [11,] "Bacteria" "Proteobacteria"            NA                   
@@ -643,11 +644,11 @@ unname(taxa)
     ##  [56,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
     ##  [57,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [58,] "Bacteria" "Proteobacteria"            "Gammaproteobacteria"
-    ##  [59,] "Bacteria" "Proteobacteria"            NA                   
+    ##  [59,] "Bacteria" NA                          NA                   
     ##  [60,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [61,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [62,] "Bacteria" "Proteobacteria"            "Alphaproteobacteria"
-    ##  [63,] "Bacteria" "Firmicutes"                NA                   
+    ##  [63,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [64,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
     ##  [65,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
     ##  [66,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
@@ -698,7 +699,7 @@ unname(taxa)
     ## [111,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
     ## [112,] "Bacteria" "Firmicutes"                "Bacilli"            
     ## [113,] "Bacteria" "Bacteroidetes"             "Sphingobacteriia"   
-    ## [114,] "Bacteria" "Firmicutes"                NA                   
+    ## [114,] "Bacteria" "Firmicutes"                "Clostridia"         
     ## [115,] "Bacteria" "Firmicutes"                "Clostridia"         
     ## [116,] "Bacteria" "Firmicutes"                "Clostridia"         
     ## [117,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
@@ -717,7 +718,7 @@ unname(taxa)
     ## [130,] "Bacteria" "Spirochaetes"              "Spirochaetia"       
     ## [131,] "Bacteria" "Firmicutes"                "Clostridia"         
     ## [132,] "Bacteria" NA                          NA                   
-    ## [133,] "Bacteria" "Firmicutes"                NA                   
+    ## [133,] "Bacteria" "Firmicutes"                "Bacilli"            
     ## [134,] "Bacteria" "Proteobacteria"            "Gammaproteobacteria"
     ## [135,] "Bacteria" "Firmicutes"                "Clostridia"         
     ## [136,] "Bacteria" "Proteobacteria"            "Alphaproteobacteria"
@@ -750,7 +751,7 @@ unname(taxa)
     ## [163,] "Bacteria" "Firmicutes"                "Bacilli"            
     ## [164,] "Bacteria" "Firmicutes"                "Clostridia"         
     ## [165,] "Bacteria" "Nitrospirae"               "Nitrospira"         
-    ## [166,] "Bacteria" "Parcubacteria"             NA                   
+    ## [166,] "Bacteria" NA                          NA                   
     ## [167,] "Bacteria" "Firmicutes"                "Bacilli"            
     ## [168,] "Bacteria" "Proteobacteria"            "Betaproteobacteria" 
     ## [169,] "Bacteria" "Bacteroidetes"             "Sphingobacteriia"   
@@ -769,7 +770,7 @@ unname(taxa)
     ##   [5,] "Neisseriales"       "Neisseriaceae"       
     ##   [6,] "Chloroplast"        "Streptophyta"        
     ##   [7,] "Burkholderiales"    "Comamonadaceae"      
-    ##   [8,] NA                   NA                    
+    ##   [8,] "Cytophagales"       NA                    
     ##   [9,] "Rhizobiales"        "Bartonellaceae"      
     ##  [10,] "Burkholderiales"    "Oxalobacteraceae"    
     ##  [11,] NA                   NA                    
@@ -824,7 +825,7 @@ unname(taxa)
     ##  [60,] "Clostridiales"      "Ruminococcaceae"     
     ##  [61,] "Clostridiales"      "Ruminococcaceae"     
     ##  [62,] "Rhizobiales"        "Methylobacteriaceae" 
-    ##  [63,] NA                   NA                    
+    ##  [63,] "Clostridiales"      NA                    
     ##  [64,] "Actinomycetales"    "Micrococcaceae"      
     ##  [65,] "Actinomycetales"    "Nocardioidaceae"     
     ##  [66,] "Actinomycetales"    "Microbacteriaceae"   
@@ -875,7 +876,7 @@ unname(taxa)
     ## [111,] "Actinomycetales"    NA                    
     ## [112,] "Bacillales"         "Staphylococcaceae"   
     ## [113,] "Sphingobacteriales" "Sphingobacteriaceae" 
-    ## [114,] NA                   NA                    
+    ## [114,] "Clostridiales"      NA                    
     ## [115,] "Clostridiales"      NA                    
     ## [116,] "Clostridiales"      "Lachnospiraceae"     
     ## [117,] "Actinomycetales"    "Geodermatophilaceae" 
@@ -904,7 +905,7 @@ unname(taxa)
     ## [140,] "Erysipelotrichales" "Erysipelotrichaceae" 
     ## [141,] "Actinomycetales"    "Mycobacteriaceae"    
     ## [142,] "Actinomycetales"    "Microbacteriaceae"   
-    ## [143,] "Clostridiales"      NA                    
+    ## [143,] "Clostridiales"      "Ruminococcaceae"     
     ## [144,] "Actinomycetales"    "Propionibacteriaceae"
     ## [145,] "Clostridiales"      "Ruminococcaceae"     
     ## [146,] "Actinomycetales"    "Nocardioidaceae"     
@@ -960,8 +961,8 @@ unname(taxa)
     ##  [19,] NA                         
     ##  [20,] "Diaphorobacter"           
     ##  [21,] NA                         
-    ##  [22,] "Intestinimonas"           
-    ##  [23,] NA                         
+    ##  [22,] NA                         
+    ##  [23,] "Clostridium_IV"           
     ##  [24,] NA                         
     ##  [25,] "Pelomonas"                
     ##  [26,] NA                         
@@ -969,7 +970,7 @@ unname(taxa)
     ##  [28,] "Streptomyces"             
     ##  [29,] NA                         
     ##  [30,] "Sphingobium"              
-    ##  [31,] NA                         
+    ##  [31,] "Marmoricola"              
     ##  [32,] "Streptomyces"             
     ##  [33,] "Salinibacterium"          
     ##  [34,] "Streptomyces"             
@@ -986,13 +987,13 @@ unname(taxa)
     ##  [45,] "Pseudomonas"              
     ##  [46,] "Streptomyces"             
     ##  [47,] NA                         
-    ##  [48,] "Pelomonas"                
+    ##  [48,] NA                         
     ##  [49,] "Microbacterium"           
     ##  [50,] "Mycobacterium"            
     ##  [51,] "Marmoricola"              
     ##  [52,] NA                         
     ##  [53,] "Streptomyces"             
-    ##  [54,] NA                         
+    ##  [54,] "Sphingosinicella"         
     ##  [55,] NA                         
     ##  [56,] NA                         
     ##  [57,] "Oscillibacter"            
@@ -1018,7 +1019,7 @@ unname(taxa)
     ##  [77,] "Nocardia"                 
     ##  [78,] "Nocardioides"             
     ##  [79,] "Subtercola"               
-    ##  [80,] "Butyricicoccus"           
+    ##  [80,] NA                         
     ##  [81,] "Cloacibacterium"          
     ##  [82,] "Microbacterium"           
     ##  [83,] "Sphingomonas"             
@@ -1060,9 +1061,9 @@ unname(taxa)
     ## [119,] "Roseburia"                
     ## [120,] NA                         
     ## [121,] "Sphingobium"              
-    ## [122,] NA                         
+    ## [122,] "Ruminococcus"             
     ## [123,] "Nocardioides"             
-    ## [124,] NA                         
+    ## [124,] "Atopostipes"              
     ## [125,] NA                         
     ## [126,] "Bacillus"                 
     ## [127,] NA                         
@@ -1072,13 +1073,13 @@ unname(taxa)
     ## [131,] NA                         
     ## [132,] NA                         
     ## [133,] NA                         
-    ## [134,] NA                         
+    ## [134,] "Nicoletella"              
     ## [135,] NA                         
-    ## [136,] "Acidisphaera"             
+    ## [136,] NA                         
     ## [137,] "Stappia"                  
     ## [138,] NA                         
     ## [139,] "Massilia"                 
-    ## [140,] NA                         
+    ## [140,] "Erysipelothrix"           
     ## [141,] "Mycobacterium"            
     ## [142,] "Microbacterium"           
     ## [143,] NA                         
@@ -1086,7 +1087,7 @@ unname(taxa)
     ## [145,] "Pseudoflavonifractor"     
     ## [146,] "Nocardioides"             
     ## [147,] NA                         
-    ## [148,] "Arachidicoccus"           
+    ## [148,] NA                         
     ## [149,] "Ruminococcus"             
     ## [150,] NA                         
     ## [151,] NA                         
@@ -1094,7 +1095,7 @@ unname(taxa)
     ## [153,] NA                         
     ## [154,] NA                         
     ## [155,] NA                         
-    ## [156,] "Pseudoflavonifractor"     
+    ## [156,] NA                         
     ## [157,] NA                         
     ## [158,] NA                         
     ## [159,] NA                         
@@ -1108,7 +1109,7 @@ unname(taxa)
     ## [167,] "Paenibacillus"            
     ## [168,] NA                         
     ## [169,] "Flavitalea"               
-    ## [170,] NA                         
+    ## [170,] "Tessaracoccus"            
     ## [171,] "Rhodopseudomonas"         
     ## [172,] NA                         
     ## [173,] "Catabacter"               
@@ -1173,10 +1174,16 @@ phyloseq_obj <- phyloseq(otu_table(sequence_table_nochim,
 melted_obj <- psmelt(phyloseq_obj)
 ```
 
-**Figure 1**: Inferred phylogeny of classes, with points on tips representing the different classes which occurred. Tree represents maximum likelihood phylogeny inferred using RAxML.
+``` r
+# Make subsetted information without Non-applicable
+subsetted_phyloseq_obj <- subset_samples(phyloseq_obj,
+                                         sex_s != "Not applicable")
+```
+
+**Figure 1**: Inferred phylogeny of classes, with points on tips representing the different phylas. Tree represents maximum likelihood phylogeny inferred using RAxML. The rationale behind analyzing it is to get a general picture of the data.
 
 ``` r
-# phylogeny, yay!
+# Phylogeny code
 plot_tree(phyloseq_obj,
           color = "Phylum",
           ladderize = TRUE) # this arranges the tree branches from short to long
@@ -1184,50 +1191,59 @@ plot_tree(phyloseq_obj,
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/phylogeny-by-phylum-1.png)
 
-**Figure 2**: Barplot indicating the abundance of certain phylums against the different sexes sampled.
+**Figure 2**: Barplot indicating the abundance of certain phylums against the two sexes sampled, excluding the not applicable category.
 
 ``` r
+# Bar plot code with a grid, can analyze sample by sample!
 library("ggplot2")
-p = plot_bar(phyloseq_obj,
-             "sex_s", 
-             fill="Phylum",
-             facet_grid=~Sample)
-p + geom_point(aes(x=sex_s, y=Abundance), 
-               color="black", 
-               position="jitter", 
-               size=1)
+p <- plot_bar(subsetted_phyloseq_obj,
+             "sex_s",
+             fill = "Phylum",
+             facet_grid = ~anonymized_name_s)
+p + geom_point(aes(x = sex_s, y = Abundance),
+               color = "black",
+               position = "jitter",
+               size = 1)
 ```
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/barplot-by-phylumsexsampleabundance-1.png)
 
+**Figure 3**: Bar plot of abundance of bacteria by classes in females and males, excluding the not applicable category.
+
 ``` r
-#CLASS PLOT
-plot_bar(phyloseq_obj, 
-         x="Class", fill="sex_s")
+# Basic bar plot code showing class 
+plot_bar(subsetted_phyloseq_obj,
+         x = "Class", fill = "sex_s")
 ```
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/barplot-by-classsexabundance-1.png)
 
+**Figure 4**: Bar plot of abundance of bacteria by order in females and males, excluding the not applicable category.
+
 ``` r
-# ORDER PLOT
-plot_bar(phyloseq_obj, 
-         x="Order", fill="sex_s")
+# Basic bar plot code showing order
+plot_bar(subsetted_phyloseq_obj,
+         x = "Order", fill = "sex_s")
 ```
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/barplot-by-ordersexabundance-1.png)
 
+**Figure 5**: Bar plot of abundance of bacteria by family in females and males, excluding the not applicable category.
+
 ``` r
-# ORDER PLOT
-plot_bar(phyloseq_obj, 
-         x="Family", fill="sex_s")
+# Basic bar plot code showing family
+plot_bar(subsetted_phyloseq_obj,
+         x = "Family", fill = "sex_s")
 ```
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/barplot-by-familysexabundance-1.png)
 
+**Figure 6**: Bar plot of abundance of bacteria by genus in females and males, excluding the not applicable category.
+
 ``` r
-# ORDER PLOT
-plot_bar(phyloseq_obj, 
-         x="Genus", fill="sex_s")
+# Basic bar plot code showing genus
+plot_bar(subsetted_phyloseq_obj,
+         x = "Genus", fill = "sex_s")
 ```
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/barplot-by-genussexabundance-1.png)
@@ -1235,34 +1251,14 @@ plot_bar(phyloseq_obj,
 Discussion
 ==========
 
-**Methods** Quality check (lines 96-99) We can see from the quality profiles that most reads tend to get pretty bad in quality after around 200 bases. Therefore, we decided to set a maximum acceptable sequence length of 225 bases. For the most part, QC was good. A common, albeit unsurprising, pattern was a degradation as the sequences got closer to the 3' end. However, the degree in which the sequences degraded varied. For example: In sequence ERR1942280, we see that the mean quality of scores for the bases were approximately 36, which is a well-above average score. In other scores such as ERR1942282, the average was 35. While this indicates that both sequences achieved a great sequence score, when looking at the data distribution visually, they look quite different. In reality, most of the sequences provided by Fierer et al. are above 30 and thus very good.
-
-Trimming (lines 126-132) When the sequences were run through DADA2’s Trim, we found most of the sequences needed to be trimmed. Specifically, 81, 82, 85, 93, and 99 were significantly cut down. While this is important to make note of, I am not as concerned with how these results affect my analysis’ question as to how females and males differ in microbial communities.
-
-Error models (line 134-138) Visualized (line 140-145) Not all sequences were the same length, which I expected. Every sample had plenty of errors per sequence for both females and males. They are visualized in the errors with plots. Generally, you want the black line to follow the black points and, as expected, they generally decrease to the left. In terms of errors, outliers were rare, again indicating the sequencing was well done.
-
-**Visuals** Histogram of sequence lengths: After trimming in DADA2 and denoising, the histogram shows a strong skew to the right with most sequences were around 220-225 bp. The lower range of sequences were below 220 bp.
-
-Sequence table with no chimeras: Using this table because we want to do variant analysis methods because DADA2 does not cluster things. The alternative, OTU, is more error-prone. The table will show all unique sequences in a sample while avoiding clustering. We see 176 sequences in each column with 20 samples in the rows. Only one sequence was shared by 5 samples: 84, 86, 93, 95, 99. Much of this is due to the experimenters parameters and thus while I find that this particular sequence might be significant, I will not focus heavily on its implications to my original question. When looking at the taxa, we see that sequence is match to an unnamed Proteobacteria, which makes sense to be shared by both men and women. When scanning through the rest of the 176 entries, the majority of shared sequences was within the sample.
-
-**Figure 1**
-
-**Figure 2**
-
-**Figure 3**
-
-**Figure 4**
-
-**Figure 5**
-
-**Figure 6**
-
-Conclusion
-==========
+Errors/Bias
+===========
 
 Sources Cited
 =============
 
 Callahan,B.J. *et al.* (2016) DADA2: High-resolution sample inference from illumina amplicon data. *Nature Methods*, **13**, 581–583.
+
+Fierer,N. *et al.* (2010) Forensic identification using skin bacterial communities. *Proceedings of the National Academy of Sciences*, **107**, 6477–6481.
 
 McMurdie,P.J. and Holmes,S. (2013) Phyloseq: An r package for reproducible interactive analysis and graphics of microbiome census data. *PLoS ONE*, **8**, e61217.
