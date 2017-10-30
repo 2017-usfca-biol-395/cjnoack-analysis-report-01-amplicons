@@ -9,11 +9,11 @@ csl: bioinformatics.csl
 
 # Introduction
 
-Microbial communities within the enviornment span from sizes of large to small and are often predicted by "pairwise interactions" between the different species within the community. As bacterial species interact with one another, they in turn affect the health of their host. In that same vein, forensic studies can be helped by further understanding bacterial-host interactions. Skin-associated bacterial communities are highly diverse, yet personalized, which indicates a possibility for their use in forensic studies. 
+Microbial communities are groups of microorganisms inhabiting the same place. These communities span from sizes of large to small. Pairwise interactions between different species within the community predict the microbial community. As bacterial species interact with one another, they in turn affect the health of their host. In a human host, microbes can live in various places on the body, from the gut to the palm of a hand. As humans, we can learn a lot from these communities. 
 
-In a study done by Fierer et al., skin-associated bacterial communities were gathered from single computer keys and computer mice and hypothesized to determine who owns the objects based on the genetic structures of the bacteria and the individual. By using a high-throughput pyrosequencing technique, Fierer et al. argue that one can confidently compare bacterial communities found on an individual's skin to the objects they use (computer keys and computer mice). In this analysis, I ask if females and males differ in their microbial communities and further look into *how* they differ (by class, order, family, or genus). I hypothesize that there will be a difference in microbial communities most identifiably by class. 
+Skin-associated microbial communities are diverse and personalized. The diversity is due to, first, the skin being a multi-layered organ. Second, each layer has different structures, ranging from arm hair follicles to glands. The different structures operate as sub-habitats for microbes. Third, the skin has various niches a microbe can inhabit. The niches themselves range from pH to moisture levels. The above all attribute to the diversity of skin-associate microbial communities.
 
-** ADD MORE **
+The microbial communities found on human skin are also personalized, which raises a lot of questions. By knowing the makeup of one's microbial community, what can we learn about the individual? Further, what can learn about a community whom all share similar microbial communities? What can we learn about the perceived differences? Specifically, can something such as gender be an indicator for microbial community difference? I hypothesize that females and males have different microbial communities. In my analysis, I will attempt to answer this question using the data from a study done by Fierer et al. (2010). In the study,  Fierer et al. took samples from personal computers and the computer owner's palm. By studying the similarities between the samples, Fierer et al. hypothesized that one can identify the computer by its owner using microbial communities. Given the data, I will attempt to answer my biological question about the relationship between gender and microbes. 
 
 # Methods
 
@@ -357,18 +357,26 @@ plot_bar(subsetted_phyloseq_obj,
 **ANSWER THE HYPOTHESIS**
 
 **Figure 1**
+
 The following is a phylogeny of the phylums from the experiment. The rationale behind analyzing it is to get a general picture of the data. We see an over abundance of Firmicutes, Proteobacteria, and Actinobacteria. Thus we can assume prior to any investigation into the difference of the sexes that, most likely, both men and women will have these three phyla. What is in less abundance but still has importance is Cyanobacteria/Chloroplast, Bacteriodetes, and Gemmatimonadetes. 
 
 **Figure 2**
+
 Using a subset of our data to include only females and males, while there was a category for the "Not applicable". Figure 2 confirms our assumption about the overabundance of particular Phylums in both men and women, especially Proteobacteria. However, in contrast to our previous assumption, the majority of the Actinobacteria was found in a single female sample. Not surprisingly, one male sample held the majority of the Cyanobacteria/Chloroplast, which I previously assumed would linger in one of the sexes given its low abundance. 
 
 **Figure 3**
+
 My hypothesis was that females and males differ in their microbial communities and that it would most distinctly differ by class of bacteria. What is first glaring in all the following figures, Figure 3 included, in the massive overabundance of N/A (not applicable) bacteria found on male palms. What concerns me is that this might be indicitive of poor sampling for the males rather than some conspicuous bacteria, but I'm weary to make too broad scale of assumptions. Secondly, we see, as from the previous figure, a high abundance of Actinobacteria in females. Third, our assumption previously made is confirmed that Proteobacteria is spread out fairly evenly amongst the females and males (specifically Alphaproteobacteria and Betaproteobacteria). Lastly, we agains see the male samples dominating in Chloroplast. What IS new is that we see a class called Flavobacteria which is found mainly on females (in Phylum Bacteriodetes). While it is new on the plot, we expected to find a Bacteriodete on mainly one of the sexes hands given the lack of abundance out of all the Phylums. 
 
 **Figure 4**
-In Figure 4, we continue to see the glaringly common theme that there is an overabundance of N/A in the male samples. However, we do see Nesseriales in male samples, which comes from class Betaproteobacteria, Proteobacteria. In females, we see Rhizobiales, which comes from class Alphaproteobacteria, Phylyum Proteobacteria. While I have thus far made a distinguishing line between females and males, specifically when it comes to Proteobacteria, Figure 4 also shows us that they share an Order within Betaproteobacteria called Burkholderiales. 
+
+In Figure 4, we continue to see the glaringly common theme that there is an overabundance of N/A in the male samples. However, we do see Nesseriales in male samples, which comes from class Betaproteobacteria, Proteobacteria. In females, we see Rhizobiales, which comes from class Alphaproteobacteria, Phylyum Proteobacteria. While I have thus far made a distinguishing line between females and males, specifically when it comes to Proteobacteria, Figure 4 also shows us that they share an Order within Betaproteobacteria called Burkholderiales. Lastly, we find that similarly men usually have chloroplast and women have Actinobacteria, the data roughly biased however given we have shown it came from only one male sample and one female sample, which cannot portray the reality of an entire population. 
 
 **Figure 5**
+
+In Figure 5, we predictably see less abundance as the other plots, as this is graphing Family. We see, unsurprisingly, that there is a higher abundance of males in Family Neisseriaceae, Order Neisseriales, Class Betaproteobacteria, Phylum Proteobacteria. In females, also unsurprisingly, we see Family Bartonellaceae, Order Rhizobiales, Class Alphaproteobacteria, Phylum Proteobacteria. Similarly to what was found in Figure 4, they shared a Family within Burkholderiales called Comamonadaceae. 
+
+Some new information popped up from Figure 5. First is that females 
 
 **Figure 6**
 
@@ -377,11 +385,17 @@ Proteobacteria: Figure 1, 2. Specifically Burkholderiales in Betaproteobacteria.
 
 **Differences**
 
-Actinobacteria mostly in one female sample, first: Figure 2, Figure 3.
+Actinobacteria mostly in one female sample, first: Figure 2, Figure 3, Figure 4.
 
-Cyanobacteria/chloroplast mostly in one male sample: Figure 2, Figure 3.
+Cyanobacteria/chloroplast mostly in one male sample: Figure 2, Figure 3, Figure 4.
 
-Proteobacteria in both females and males: All figures BUT figure 3 shows women going to alpha and men going to beta. More interestingly, Figure 4 shows men going to Nesseriales specifically, making my hypothesis wrong that the most indicitave order of Bacteria between females and males (from this study) is Order. 
+Proteobacteria in both females and males: All figures 
+BUT figure 3 shows women going to alpha and men going to beta. 
+More interestingly, Figure 4 shows men going to Nesseriales specifically, making my hypothesis wrong that the most indicitave order of Bacteria between females and males (from this study) is Order. 
+
+** Males: Neisseriaceae, Neisseriales, Betaproteobacteria, Proteobacteria **
+
+**Females: Bartonellaceae, Rhizobiales, Alphaproteobacteria, Proteobacteria**
 
 Bacteriodete: Figure 3.
 
@@ -389,6 +403,11 @@ N.A in males: All.
 
 # Conclusion
 
+From the data provided, we see females and males showing most difference in microbial communities at the level of Order, not Class. 
+
+# Errors/Bias
+
+Females and males are identified as such by their sexes, however the study doesn't account for gender. 
 
 # Sources Cited
 
