@@ -329,7 +329,7 @@ p + geom_point(aes(x = sex_s, y = Abundance),
 **Figure 3**: Bar plot of abundance of bacteria by classes in females and males, excluding the not applicable category.
 
 ```{r barplot-by-classsexabundance}
-# Basic bar plot code showing class 
+# Basic bar plot code showing class
 plot_bar(subsetted_phyloseq_obj,
          x = "Class", fill = "sex_s")
 ```
