@@ -150,7 +150,7 @@ plotErrors(errors_forward_reads,
 ```
 
 **Errors**
-Not all sequences were the same length, which I expected. Every sample had plenty of errors per sequence for both females and males. They are visualized in the errors with plots. Generally, you want the black line to follow the black points and, as expected, they generally decrease to the left. In terms of errors, outliers were rare, again indicating the sequencing was well done.  
+Not all sequences were the same length, which I expected. Every sample had plenty of errors per sequence for both females and males. Generally, you want the black line to follow the black points and, as expected, they generally decrease to the left. In terms of errors, outliers were rare, again indicating the sequencing was well done.  
 
 ```{r dereplicate-sequences, echo=FALSE}
 # get rid of any duplicated sequences
