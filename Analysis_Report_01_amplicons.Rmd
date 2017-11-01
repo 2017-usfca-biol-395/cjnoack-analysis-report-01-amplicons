@@ -101,7 +101,9 @@ filenames_forward_reads <- file.path(path, filenames_forward_reads)
 plotQualityProfile(filenames_forward_reads[1:20])
 ```
 
-**Quality check**: We can see from the quality profiles that most reads tend to get pretty bad in quality after around 200 bases. Therefore, we decided to set a maximum acceptable sequence length of 225 bases. For the most part, QC was good. A common, albeit unsurprising, pattern was a degradation as the sequences got closer to the 3' end. However, the degree in which the sequences degraded varied. For example: In sequence ERR1942280, we see that the mean quality of scores for the bases were approximately 36, which is a well-above average score. In other scores such as ERR1942282, the average was 35. While this indicates that both sequences achieved a great sequence score, when looking at the data distribution visually, they look quite different. In reality, most of the sequences provided by Fierer et al. are above 30 and thus very good.
+**Quality check**: The quality profiles show that most reads tend to decline in quality after 200 bases. Given the deterioration, we decided to set a maximum acceptable sequence length of 225 bases. Overall however, QC was good. A common, albeit unsurprising, pattern was a degradation as the sequences got closer to the 3' end. Yet the degree in which the sequences degraded varied. 
+
+For example: In sequence ERR1942280, we see that the mean quality of scores for the bases were approximately 36, which is a well-above average score. In other scores such as ERR1942282, the average was 35. While both sequences achieved a great sequence score, visually they look quite different. In reality, most of the sequences provided by Fierer et al. are above 30 and thus very good.
 
 ```{r filter-reads, echo=FALSE}
 # Place filtered files in filtered/ subdirectory
