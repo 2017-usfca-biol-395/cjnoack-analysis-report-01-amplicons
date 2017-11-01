@@ -200,7 +200,9 @@ non_chimeric_reads <- round(sum(sequence_table_nochim) / sum(sequence_table),
                             digits = 4) * 100
 ```
 
-**Chimera Removal**: After removing chimeras, we were left with `r non_chimeric_reads`% of our cleaned reads. Using this table because we want to do variant analysis methods because DADA2 does not cluster things. The alternative, OTU, is more error-prone. The table will show all unique sequences in a sample while avoiding clustering. We see 176 sequences in each column with 20 samples in the rows. Only one sequence was shared by 5 samples: 84, 86, 93, 95, 99. Much of this is due to the experimenters parameters and thus while I find that this particular sequence might be significant, I will not focus heavily on its implications to my original question. When looking at the taxa, we see that sequence is match to an unnamed Proteobacteria, which makes sense to be shared by both men and women. When scanning through the rest of the 176 entries, the majority of shared sequences was within the sample. 
+**Chimera Removal**: After removing chimeras, we have `r non_chimeric_reads`% of our cleaned reads. We use a table because we want to do variant analysis methods and DADA2 does not cluster things. The alternative, OTU, is more error-prone. The table will show all unique sequences in a sample while avoiding clustering. 
+
+We see 176 sequences in each column with 20 samples in the rows.  5 samples (84, 86, 93, 95, 99) shared one sequence. This is due to the experimenters parameters. When looking at the taxa, we see that sequence is match to an unnamed Proteobacteria, which makes sense as later on we see that the majority of females and males have a type of Proteobacteria.
 
 ```{r table-of-pipeline-read-counts, echo=FALSE}
 # Build a table showing how many sequences remain at each step of the pipeline
