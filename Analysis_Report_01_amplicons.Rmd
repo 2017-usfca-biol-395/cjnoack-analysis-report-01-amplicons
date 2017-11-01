@@ -402,7 +402,19 @@ In females, we see Genus Bartonella, Family Bartonellaceae, Order Rhizobiales, C
 
 # What It Means
 
+The data confirms my general hypothesis, that females and males differ in skin-associated micro biomes. But what does it mean?
+
+The difference can mean that females and males differ in their hygiene practice. Before the study, the subjects went about their normal practices when it comes to hand washing. Thus, the results can be telling us less so much about sex on the genetic basis, but more of a behavior difference. The change in a bacterial community composition since the last time an individual washes their hands is significant [@fierer2008influence]. In addition, while females and males might have distinct bacterial communities, they become more apparent since hand washing [@fierer2008influence]. It is not far-fetched to say that hand washing plays a vital part when the palm was the area of DNA extraction. 
+
+Hand washing is not the only reason females and males may differ in microbial communities. It might be due to difference in pH, sweat production, cosmetics, moisturizers, thickness of skin, or even hormone production [@fierer2008influence]. Bacteria, as mentioned before, is fickle because while it provides beautiful data and figures, it's not easily interpretable. 
+
+And not only is bacteria difficult to make assumptions about, but bacteria found on the skin is dynamic. Skin is in contact with many things, especially on the hand. If we want to want to understand skin-associated microbial communities on a deeper level, the data requires further analysis. Clearly, hand washing has a quick effect on an individuals bacterial make up. As we saw, some samples were jarring, such as the males having Neisseria. These results speak to the known importance of proper personal hygeine to prevent us from primary pathogens such as Neisseria. However, we also must be careful with our findings from such research, as the data can only give data, but we as the informaticians map the story. 
+
+Overall, the complexity and interest of bacteria found on the skin is clear. We do see a distinction between females and males. But, informaticians only shape the story to fit what the data provides in the most unbiased way. Thus, when it comes to microbial communities and their relationship to humans, we require more analyses from different perspectives in order to absorb the influx of data now sequenced. 
+
 # Errors/Bias
+
+Like all analysis, this one is apt to error and bias. Firstly, sex is the label for females and males however the study doesn't account for gender. It makes an assumption. While gender is the human confluence, these days its appropriate to say that it can alter behavior. Thus, it can alter how or what micro biomes will associate on the skin. Second, a lot of males are non applicable. This means something went south during sequencing. We can also see this in the error output. Arguably, this troubles much of the data. For our purposes, it didn't encroach too much on the hypothesis. Lastly, the sample itself is small and requires further research. Isolated computer mouses are not a good reflection of the world as a whole and thus the study cannot speak to all females and males. 
 
 # Sources Cited
 
