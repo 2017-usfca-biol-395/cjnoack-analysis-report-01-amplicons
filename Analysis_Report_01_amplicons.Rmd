@@ -360,6 +360,24 @@ plot_bar(subsetted_phyloseq_obj,
 
 # Discussion
 
+**Results**
+
+The skin-associated microbial communities differ on females. From the Fierer et al. data, we see that females and males both have an overabundance of Proteobacteria in their DNA samples. Most interestingly, females have more Alphaproteobacteria while males have more Betaproteobacteria. Thus, the sexes appear to diverge at the class level. However, there were similarities between the sexes which deserve clarification. 
+
+**Similarities**
+
+Females and males have some similarity when it comes to skin-associated micro biomes. In the data, we see females and males both have an overabundance of Phylum Proteobacteria (Figures 1 & 2). Within Proteobacteria, they share Class Betaproteobacteria (Figure 3). They even share Order Burkholderiales (Figure 4), Family Comamonadaceae (Figure 5), Genus Acidovorax (Figure 6). 
+
+The Acidovorax genus is vast with many species. 
+
+We cannot tell from the given samples the species which appeared in both female and male samples. The alternative reasoning is that females and males have different species of the same genus Acidovorax. Not much information about Acidovorax and its relationship with humans is readily available. This means more research needs to occur in order to understand why females and males share the genus. More importantly, it's important to note that this was a small experiment which is prone to sampling error. So, we must take the Acidovorax similarity with a grain of salt. 
+
+One final, albeit small, similarity is the overall an overabundance of Phylum Firmicutes, Proteobacteria, and Actinobacteria (Figure 1, Figure 2) between females and males. The same result was also found by another study done by Fierer et al. in 2008 (@fierer2008influence). The similarity indicates that, most likely, both men and women will have these three phyla.
+
+**Differences**
+
+
+
 # Errors/Bias
 
 # Sources Cited
