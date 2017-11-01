@@ -360,11 +360,9 @@ plot_bar(subsetted_phyloseq_obj,
 
 # Discussion
 
-**Results**
-
 The skin-associated microbial communities differ on females. From the Fierer et al. data, we see that females and males both have an overabundance of Proteobacteria in their DNA samples. Most interestingly, females have more Alphaproteobacteria while males have more Betaproteobacteria. Thus, the sexes appear to diverge at the class level. However, there were similarities between the sexes which deserve clarification. 
 
-**Similarities**
+# Similarities
 
 Females and males have some similarity when it comes to skin-associated micro biomes. In the data, we see females and males both have an overabundance of Phylum Proteobacteria (Figures 1 & 2). Within Proteobacteria, they share Class Betaproteobacteria (Figure 3). They even share Order Burkholderiales (Figure 4), Family Comamonadaceae (Figure 5), Genus Acidovorax (Figure 6). 
 
@@ -374,9 +372,23 @@ We cannot tell from the given samples the species which appeared in both female 
 
 One final, albeit small, similarity is the overall an overabundance of Phylum Firmicutes, Proteobacteria, and Actinobacteria (Figure 1, Figure 2) between females and males. The same result was also found by another study done by Fierer et al. in 2008 (@fierer2008influence). The similarity indicates that, most likely, both men and women will have these three phyla.
 
-**Differences**
+# Differences
 
+Females and males differed on a small and large scale. On a small scale, females showed dominance in class Flavobacteria.  On a large scale, females showed dominance in phylum Actinobacteria and males showed dominance in Chloroplast. However, the biggest difference occurred between females and males in Proteobacteria. Females were more prone to be alpha-proteobacteria. Males were more prone to be beta-proteobacteria. These three differences are equally important and I will spend time analyzing how they all affect my original hypothesis.
 
+**Flavobacteria**
+
+Cyanobacteria/Chloroplast, Bacteriodetes, and Gemmatimonadetes were less common in the two sexes. Class Flavobacteria within phyla Bacteriodetes, however, were female samples (Figure 3). 
+
+The reason Flavobacterium is interesting is because the bacteria is usually a "causative agent of bacterial cold water disease and rainbow trout fry syndrome" (@nematollahi2003flavobacterium). How it ended up in female samples is certainly thought-provoking. The bacteria resides mainly in water systems. A previous study claims Flavobacteria occurs "with α-proteobacteria and γ-proteobacteria, [all] dominate[s] the bacterial populations in the Southern Ocean" [@abell2005ecological]. They go on to mention that the relationship occurs in other oceanic areas as well.  This information is relevant to our analysis because we saw alpha-proteobacteria and beta-proteobacteria occur in the samples as well. 
+
+The occurrence of Flavobacteria is not an isolated event; it is probably due to a mixture of events. For example, washing hands requires a water source. This could easily be the reasoning why this occurred more in females. Or, potentially, the presence of Flavobacteria might be do to its relationship to another bacteria in our sample. Such reasoning would require further analysis. However, in reference to our hypothesis, we do see this class of Bacteria more in females, which supports that females and males differ in skin-associated micro biomes. 
+
+**Actinobacteria & Chloroplast**
+
+**Proteobacteria in Females and Males**
+
+# What It Means
 
 # Errors/Bias
 
